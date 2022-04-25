@@ -1,5 +1,4 @@
 import os
-from pprint import pprint
 
 
 def get_cook_book(food_list):
@@ -25,4 +24,20 @@ def get_cook_book(food_list):
         return cook_book
 
 
-pprint(get_cook_book('recipes.txt'))
+def shopping_list(dishes, person):
+    cook_book = get_cook_book('recipes.txt')
+    shop_list = {}
+    for dish in dishes:
+        if dish in cook_book.keys():
+            for product in cook_book[dish]:
+                name = product['ingredient_name']
+                measure = product['measure']
+                quantity = product['quantity']
+                if name not in shop_list:
+                    shop_list[name] = {'measure': measure, 'quantity': quantity * person}
+                else:
+                    shop_list[name]['quantity'] += quantity * person
+    return shop_list
+
+
+print(shopping_list(['Омлет', 'Фахитос'], 2))

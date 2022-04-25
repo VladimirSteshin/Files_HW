@@ -17,7 +17,7 @@ def file_sort(package):
     return file_dict
 
 
-with open("Result.txt", "a", encoding='UTF-8') as container:
+with open('Result.txt', 'a', encoding='UTF-8') as container:
     library = file_sort(file_list)
     lengths = []
     for i in library.values():

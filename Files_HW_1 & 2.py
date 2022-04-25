@@ -4,7 +4,7 @@ import os
 def get_cook_book(food_list):
     cook_book = {}
     path = os.path.join(os.getcwd(), food_list)
-    with open(path, 'r', encoding='UTF-8') as file:
+    with open(path, encoding='UTF-8') as file:
         while True:
             dish_name = file.readline().strip()
             if not dish_name:
